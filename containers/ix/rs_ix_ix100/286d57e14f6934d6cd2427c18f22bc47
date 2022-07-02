@@ -1,0 +1,18 @@
+#!/bin/bash
+mkdir /bgp_smart_contracts/logs
+touch /bgp_smart_contracts/logs/GanacheLogFile.log
+LOG_LOCATION=/bgp_smart_contracts/logs
+exec > >(tee -i $LOG_LOCATION/GanacheLogFile.log)
+exec 2>&1
+ganache -a 200 -p 8545 -h 10.100.0.100 --deterministic --database.dbPath /ganache &
+sleep 2
+cd /bgp_smart_contracts/src 
+python3 compile.py 
+sleep 2 
+python3 deploy.py ACCOUNT0
+sleep 2
+python3 account_script.py 
+echo 'Ganache setup ran. Check Logs for details.'
+cd ..
+cd ..
+
