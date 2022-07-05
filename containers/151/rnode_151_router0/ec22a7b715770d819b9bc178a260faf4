@@ -1,0 +1,9 @@
+#!/bin/bash
+mkdir /bgp_smart_contracts/logs
+LOG_LOCATION=/bgp_smart_contracts/logs
+exec > >(tee -i $LOG_LOCATION/ProxyLogFile.log)
+exec 2>&1
+cd /bgp_smart_contracts/src/
+python3 proxy.py
+echo 'Proxy setup ran. Check Logs for details.'
+
