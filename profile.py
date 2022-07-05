@@ -2,7 +2,6 @@
 of several standard images we provide, or just use the default (typically a recent
 version of Ubuntu). You may also optionally pick the specific hardware type for
 all the nodes in the lan.
-
 Instructions:
 Wait for the experiment to start, and then log into one or more of the nodes
 by clicking on them in the toplogy, and choosing the `shell` menu option.
