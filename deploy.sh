@@ -2,8 +2,8 @@
 # Start up services
 filename='containers/priority.txt'
 while read p; do
-    sudo docker-compose -f "containers/${p}/docker-compose.yml" build
-    sudo docker-compose -f "containers/${p}/docker-compose.yml" push
+    sudo docker compose -f "containers/${p}/docker-compose.yml" build
+    sudo docker compose -f "containers/${p}/docker-compose.yml" push
     sudo docker service create \
        --name "${p}-wrapper" \
        --mount type=bind,source=/var/run/docker.sock,target=/var/run/docker.sock \
