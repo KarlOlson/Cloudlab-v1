@@ -10,6 +10,6 @@ while read p; do
        --mount type=bind,source="/local/repository/containers/${p}",target=/tmp/ \
        --workdir /tmp/ \
        docker/compose \
-       docker-compose up
+       docker compose up
     echo "Deployed $p to swarm"
 done < "$filename"
